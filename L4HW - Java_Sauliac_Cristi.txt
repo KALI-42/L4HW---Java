@@ -1,0 +1,152 @@
+Напишите калькулятор, который получает числа введенные пользователем, и производит с ними заданные действия – поиск суммы / среднего значения/ сравнение.
+
+import java.util.Scanner;
+
+public class Calculator {
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int num1 = getInt();
+        int num2 = getInt();
+        char operation = getOperation();
+        int result = calc(num1,num2,operation);
+        System.out.println("Результат операции: "+result);
+    }
+
+    public static int getInt(){
+        System.out.println("Введите число:");
+        int num;
+        if(scanner.hasNextInt()){
+            num = scanner.nextInt();
+        } else {
+            System.out.println("Вы допустили ошибку при вводе числа. Попробуйте еще раз.");
+            scanner.next();//рекурсия
+            num = getInt();
+        }
+        return num;
+    }
+
+    public static char getOperation(){
+        System.out.println("Введите операцию:");
+        char operation;
+        if(scanner.hasNext()){
+            operation = scanner.next().charAt(0);
+        } else {
+            System.out.println("Вы допустили ошибку при вводе операции. Попробуйте еще раз.");
+            scanner.next();//рекурсия
+            operation = getOperation();
+        }
+        return operation;
+    }
+
+    public static int calc(int num1, int num2, char operation){
+        int result;
+        switch (operation){
+            case '+':
+                result = num1+num2;
+                break;
+            case '-':
+                result = num1-num2;
+                break;
+            case '*':
+                result = num1*num2;
+                break;
+            case '/':
+                result = num1/num2;
+                break;
+            default:
+                System.out.println("Операция не распознана. Повторите ввод.");
+                result = calc(num1, num2, getOperation());//рекурсия
+        }
+        return result;
+    }
+}
+
+import java.util.Scanner;
+ 
+public class Calculator {
+    static Scanner scanner = new Scanner(System.in);
+ 
+    public static void main(String[] args) {
+        int num1 = getInt();
+        int num2 = getInt();
+        char operation = getOperation();
+        int result = calc(num1,num2,operation);
+        System.out.println("Результат операции: "+result);
+    }
+ 
+    public static int getInt(){
+        System.out.println("Введите число:");
+        int num;
+        if(scanner.hasNextInt()){
+            num = scanner.nextInt();
+        } else {
+            System.out.println("Вы допустили ошибку при вводе числа. Попробуйте еще раз.");
+            scanner.next();//рекурсия
+            num = getInt();
+        }
+        return num;
+    }
+ 
+    public static char getOperation(){
+        System.out.println("Введите операцию:");
+        char operation;
+        if(scanner.hasNext()){
+            operation = scanner.next().charAt(0);
+        } else {
+            System.out.println("Вы допустили ошибку при вводе операции. Попробуйте еще раз.");
+            scanner.next();//рекурсия
+            operation = getOperation();
+        }
+        return operation;
+    }
+ 
+    public static int calc(int num1, int num2, char operation){
+        int result;
+        switch (operation){
+            case '+':
+                result = num1+num2;
+                break;
+            case '-':
+                result = num1-num2;
+                break;
+            case '*':
+                result = num1*num2;
+                break;
+            case '/':
+                result = num1/num2;
+                break;
+            default:
+                System.out.println("Операция не распознана. Повторите ввод.");
+                result = calc(num1, num2, getOperation());//рекурсия
+        }
+        return result;
+    }
+}
+Создайте программу, которая выводит на экран приветствие на языке пользователя, который он указал заранее(3-4 варианта)
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) 
+  {
+    Scanner input = new Scanner (System.in);
+    System.out.print("Input your first name: ");
+    String fname = input.next();
+    System.out.print("Input your last name: ");
+    String lname = input.next();
+    System.out.println();
+    System.out.println("Hello \n"+fname+" "+lname);
+  }
+}
+Создайте программу, определяющую является число чётным или нечётным.
+    public static void main(String[] args){
+        for (int i = 0; i < 100; i++); {
+            if (isDiv(100, i))
+                System.out.println(i);
+        }
+    }
+ 
+    private static boolean isDiv(int num, int denum) {
+        return denum != 0 && num % denum == 0;
+    }
+Создайте программу, которая принимает 5 численных значений (либо буквенных символов одного регистра) и возвращает их в порядке возрастания (или в алфавитном порядке, если пользователь ввёл буквы)
+Создайте программу, которая возвращает все пары множителей введённого числа (если таковые есть).
